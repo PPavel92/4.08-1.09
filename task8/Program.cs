@@ -7,12 +7,6 @@
 Console.Write("Введите число:");
 int number0 = Convert.ToInt32(Console.ReadLine());
 int c = 1;
-if (c < number0)
-{
-   int c = c % 2 == 1;
-}
-else
-{
-    Console.Write($" {c}");
-}
-c = c + 1;
+for (c = 1; c < number0; c++)
+    if (c % 2 == 0)
+Console.Write($"{c}, ");
