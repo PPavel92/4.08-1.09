@@ -5,10 +5,9 @@
 
 Console.Write("Введите число:");
 int number0 = Convert.ToInt32(Console.ReadLine());
-int n = number0 * (-2);
-while (n = number0)
-    if (Console.Write($"{n}"));
-    else
-    {
-      int n = n + 1;
-    }
+int c = number0 * (-1);
+while (c <= number0)
+{
+    Console.Write($"{c}, ");
+    c++;
+}
