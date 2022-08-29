@@ -20,7 +20,7 @@ void CheckNum (int number1, int number2)
     }
     else
     {
-        Console.WriteLine($"Не кратно" + number1 % number2);
+        Console.WriteLine($"Не кратно"  + number1 % number2);
     }
 }
 CheckNum(firstNum,secondNum);
