@@ -6,7 +6,7 @@
 Console.Write("Введите число от 1 до 7:_");
 int number = Convert.ToInt32(Console.ReadLine());
 string day = "";
-if (number <= 7)
+if ( number <= 7)
 {
     switch (number)
     {
