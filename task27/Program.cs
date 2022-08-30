@@ -21,4 +21,4 @@ int SumNum(int n)
     return res;
 }
 int sum = SumNum(num);
-Console.Write($"Cумму цифр в числе {num} -> {sum} {str}");
+Console.Write($"Cумму цифр в числе {num} -> {sum}");
