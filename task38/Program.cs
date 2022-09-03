@@ -41,6 +41,5 @@ double[] arrayOfRealNumbers = CreateArrayRndDouble(5);
 PrintdoubleArray(arrayOfRealNumbers);
 double result = MaxElementArray(arrayOfRealNumbers);
 // Console.WriteLine($" Разница между max и min -->{result}");
-
 Console.WriteLine($" Разница между max и min -->" + result.ToString("00.00"));
 

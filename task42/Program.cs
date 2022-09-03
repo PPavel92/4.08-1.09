@@ -23,11 +23,11 @@ Console.WriteLine(res);
 
 // через рекурсию//
 
-int num = 13;
-void DecToBin(int n)
-{
-    if (n == 0) return;
-    DecToBin(n / 2);
-    Console.Write(n % 2);
-}
-DecToBin(num);
+// int num = 13;
+// void DecToBin(int n)
+// {
+//     if (n == 0) return;
+//     DecToBin(n / 2);
+//     Console.Write(n % 2);
+// }
+// DecToBin(num);

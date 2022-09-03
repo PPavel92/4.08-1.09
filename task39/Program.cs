@@ -4,7 +4,7 @@
 // [1 2 3 4 5] -> [5 4 3 2 1]
 // [6 7 3 6] -> [6 3 7 6]
 
-// Array.Reverse
+
 
 int[] CreateArrayRndInt(int size, int min, int max)
 {
@@ -26,7 +26,7 @@ void PrintArray(int[] array)
     Console.Write(array[array.Length - 1]);
     Console.WriteLine("]");
 }
-
+//// Array.Reverse// метод dotnet
 // void ReverseArray(int[] array)
 // {
 //     int size = array.Length;

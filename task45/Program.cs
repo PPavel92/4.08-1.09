@@ -28,7 +28,6 @@ int[] CppyArray(int[] array)
 {
     int[] copy = new int[array.Length];
     for (int i = 0; i < array.Length; i++) copy[i] = array[i];
-    copy[0] = 2022;
     return copy;
 }
 int[] arr = CreateArrayRndInt(4, 0, 10);
