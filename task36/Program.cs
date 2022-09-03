@@ -28,7 +28,7 @@ void PrintArray(int[] array)
 int SumElementEvanIndex(int[] array)
 {
     int sumElem = 0;
-    for (int i = 0; i < array.Length; i += 2)
+    for (int i = 1; i < array.Length; i += 2)
     {
         sumElem += array[i];
     }
