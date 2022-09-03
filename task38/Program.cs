@@ -9,7 +9,7 @@ double[] CreateArrayRndDouble(int size)
     Random rnd = new Random();
     for (int i = 0; i < size; i++)
     {
-        array[i] = Math.Round(rnd.NextDouble() * (10 - (-10)) + (10),2);
+        array[i] = Math.Round(rnd.NextDouble() * (10 - (-10)) + (10), 2);
     }
     return array;
 }
@@ -33,10 +33,14 @@ double MaxElementArray(double[] array)
         if (array[i] < minElem) minElem = array[i];
     }
     double res = maxElem - minElem;
+
     return res;
 }
 
 double[] arrayOfRealNumbers = CreateArrayRndDouble(5);
 PrintdoubleArray(arrayOfRealNumbers);
 double result = MaxElementArray(arrayOfRealNumbers);
-Console.WriteLine($" Разница между max и min -->{result}");
+// Console.WriteLine($" Разница между max и min -->{result}");
+
+Console.WriteLine($" Разница между max и min -->" + result.ToString("00.00"));
+
