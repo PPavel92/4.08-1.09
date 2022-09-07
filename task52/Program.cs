@@ -34,23 +34,26 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
- int ArithmeticHeart20(int[,] matr)
+void ArithmeticHeart20(int[,] matrix)
 {
-
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        int arithmeticHeart = 0;
-        for (int j = 0; j < matr.GetLength(1); j++)
+        double arithmeticHeart = 0;
+        for (int i = 0; i < matrix.GetLength(0); i++)
+
         {
-            arithmeticHeart += matr[i,j];
-            arithmeticHeart = arithmeticHeart/ matr.GetLength(1);
-            Console.WriteLine(arithmeticHeart);
+            arithmeticHeart += matrix[i, j];
         }
+        arithmeticHeart = arithmeticHeart / matrix.GetLength(0);
+        arithmeticHeart = Math.Round(arithmeticHeart, 2);
+        Console.Write($"{arithmeticHeart}  ");
     }
-    
 }
+
+
+
 int[,] matri = CreateMatrixRndInt(3, 5, 1, 9);
 PrintMatrix(matri);
 Console.WriteLine();
+Console.WriteLine("Cреднее арифметическое элементов в каждом столбце:");
 ArithmeticHeart20(matri);
-PrintMatrix(ArithmeticHeart20);
