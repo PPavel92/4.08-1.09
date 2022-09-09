@@ -34,23 +34,31 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-Console.WriteLine("Введите первую позицию");
-int position1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите вторую позицию ");                        /// Недоделал!!!
-int position2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите первую позицию");
+// int position1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите вторую позицию ");                        /// Недоделал!!!
+// int position2 = Convert.ToInt32(Console.ReadLine());
 
-int PositionElement(int[,] matrix, int a )
+void PositionElement(int[,] matrix)
 {
-
- for (int i = 0; i <position1 ; i++)
- {
-    a = i;
-    Console.WriteLine(a);
- }
- return a;
+    Console.WriteLine("Введите первую позицию");
+    int position1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите вторую позицию ");                        /// Недоделал!!!
+    int position2 = Convert.ToInt32(Console.ReadLine());
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {int a =1;
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            a= matrix[i, j];
+             return ;   
+        }
+    }
 }
+
 int[,] matr = CreateMatrixRndInt(3, 4, 1, 9);
 PrintMatrix(matr);
 
-int result = PositionElement(matr);
+PositionElement(matr);
+
+
 
