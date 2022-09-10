@@ -46,7 +46,7 @@ bool PositionElement(int[,] matrix, int x1, int y1)
 int[,] matr = CreateMatrixRndInt(3, 4, 1, 9);
 PrintMatrix(matr);
 bool res = PositionElement(matr, x, y);
-Console.WriteLine(res ? matr[x, y] : "Такого элемента в массиве нет");
+Console.WriteLine(res ? matr[x-1, y-1] : "Такого элемента в массиве нет");
 
 
 
