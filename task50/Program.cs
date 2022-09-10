@@ -34,31 +34,23 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-// Console.WriteLine("Введите первую позицию");
-// int position1 = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Введите вторую позицию ");                        /// Недоделал!!!
-// int position2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите первую позицию");
+int x = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите вторую позицию ");
+int y = Convert.ToInt32(Console.ReadLine());
 
-void PositionElement(int[,] matrix)
+bool PositionElement(int[,] matrix, int x1, int y1)
 {
-    Console.WriteLine("Введите первую позицию");
-    int position1 = Convert.ToInt32(Console.ReadLine());
-    Console.WriteLine("Введите вторую позицию ");                        /// Недоделал!!!
-    int position2 = Convert.ToInt32(Console.ReadLine());
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {int a =1;
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            a= matrix[i, j];
-             return ;   
-        }
-    }
+    return x1 <= matrix.GetLength(0) && y1 <= matrix.GetLength(1);
 }
-
 int[,] matr = CreateMatrixRndInt(3, 4, 1, 9);
 PrintMatrix(matr);
+bool res = PositionElement(matr, x, y);
+Console.WriteLine(res ? matr[x, y] : "Такого элемента в массиве нет");
 
-PositionElement(matr);
+
+
+
 
 
 
