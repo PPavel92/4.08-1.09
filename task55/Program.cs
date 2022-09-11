@@ -69,7 +69,7 @@ bool SqMatr(int[,] matrix)
     return matrix.GetLength(0) == matrix.GetLength(1);
 }
 
- int[,] matr = CreateMatrixRndInt(3, 4, 1, 9);
+ int[,] matr = CreateMatrixRndInt(4, 4, 1, 9);
 PrintMatrix(matr);
 if(SqMatr(matr))
 {
