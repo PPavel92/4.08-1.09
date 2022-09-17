@@ -17,4 +17,4 @@ int SumBetween(int am, int an)
  return am + SumBetween(am+1, an);
 }
 int result = SumBetween(numberM, numberN);
-Console.WriteLine(result);
+Console.WriteLine($"Снмма натуральных чисел в промежутке от {numberM} до {numberN} => {result}");
