@@ -72,3 +72,30 @@ Console.WriteLine();
 
 
 
+
+
+
+int SumLineElements(int[,] matrix, int i)
+{
+  int sumLine = matrix[i,0];
+  for (int j = 1; j < matrix.GetLength(1); j++)
+  {
+    sumLine += matrix[i,j];
+  }
+  return sumLine;
+}
+
+
+int minSumLine = 0;
+int sumLine = SumLineElements(matr, 0);
+for (int i = 1; i < matr.GetLength(0); i++)
+{
+  int tempSumLine = SumLineElements(matr, i);
+  if (sumLine > tempSumLine)
+  {
+    sumLine = tempSumLine;
+    minSumLine = i;
+  }
+}
+
+System.Console.WriteLine($"\n{minSumLine+1} {sumLine}");
