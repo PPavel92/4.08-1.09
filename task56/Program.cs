@@ -38,18 +38,24 @@ void PrintMatrix(int[,] matrix)
 
 void Sum(int[,] matrix)
 {
-    int min = 99999999; //// не доделал, что бы мин не вводить!!!!!!!!!!!!!
-    int index = 0;
+    int min = 0;
+    int index = 1;
+
+    for (int i = 0; i < matrix.GetLength(1); i++)
+    {
+        min = min + matrix[0, i];
+    }
+
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         int summ = 0;
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             summ += matrix[i, j];
-            
+
         }
         Console.WriteLine($"{i + 1} строка {summ}  ");
-        if (summ < min)
+        if (min > summ)
         {
             min = summ;
             index = i + 1;
@@ -59,43 +65,8 @@ void Sum(int[,] matrix)
 
 }
 
-
-
-
-
 int[,] matr = CreateMatrixRndInt(5, 4, 1, 9);
 PrintMatrix(matr);
 Console.WriteLine();
 Sum(matr);
 Console.WriteLine();
-
-
-
-
-
-
-
-int SumLineElements(int[,] matrix, int i)
-{
-  int sumLine = matrix[i,0];
-  for (int j = 1; j < matrix.GetLength(1); j++)
-  {
-    sumLine += matrix[i,j];
-  }
-  return sumLine;
-}
-
-
-int minSumLine = 0;
-int sumLine = SumLineElements(matr, 0);
-for (int i = 1; i < matr.GetLength(0); i++)
-{
-  int tempSumLine = SumLineElements(matr, i);
-  if (sumLine > tempSumLine)
-  {
-    sumLine = tempSumLine;
-    minSumLine = i;
-  }
-}
-
-System.Console.WriteLine($"\n{minSumLine+1} {sumLine}");
