@@ -52,7 +52,6 @@ void Sum(int[,] matrix)
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             summ += matrix[i, j];
-
         }
         Console.WriteLine($"{i + 1} строка {summ}  ");
         if (min > summ)
