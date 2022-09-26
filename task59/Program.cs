@@ -33,69 +33,52 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-// void FindFirstMinElement(int [,] matrix)
-// {
-//     for (int i = 0; i < PrintMatrix.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < PrintMatrix.GetLength(1); j++)
-//         {
-            
-//         }
-//     }
-// }
-
-
-int[,] matr = CreateMatrixRndInt(4, 4, -1, 5);   //Не доделал...
-//int col =2, row =1;
+int[,] matr = CreateMatrixRndInt(4, 4, 10, 99);
 PrintMatrix(matr);
-
 Console.WriteLine();
 
-PrintMatrix(matr);
-
-
-int[,] FindPositionSmallElement(int[,] matrix)
+int[,] PositionSmallElem(int[,] matrix)
 {
-    int[,] positionSmallElement = new int[1, 2];
-  int temp = matrix[0, 0];
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+    int[,] smallElement = new int[1, 2];
+    int temp = matrix[0, 0];
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-      if (matrix[i, j] <= temp)
-      {
-        positionSmallElement[0, 0] = i;
-        positionSmallElement[0, 1] = j;
-        temp = matrix[i, j];
-      }
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] <= temp)
+            {
+                smallElement[0, 0] = i;
+                smallElement[0, 1] = j;
+                temp = matrix[i, j];
+            }
+        }
     }
-  }
-  Console.WriteLine($"Mинимальный элемент: {temp}");
-  return positionSmallElement;
+    Console.WriteLine($"Mинимальный элемент: {temp}");
+    return smallElement;
 }
 
-void DeleteLines(int[,] matrix, int[,] positionSmallElement)
+void DeleteLines(int[,] matrix, int[,] smallElement, int[,] arrayDeleteLines)
 {
-    int[,] arrayWithoutLines = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
-  int k = 0, l = 0;
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+    int k = 0, l = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-      if (positionSmallElement[0, 0] != i && positionSmallElement[0, 1] != j)
-      {
-        arrayWithoutLines[k, l] = matrix[i, j];
-        l++;
-      }
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if (smallElement[0, 0] != i && smallElement[0, 1] != j)
+            {
+                arrayDeleteLines[k, l] = matrix[i, j];
+                l++;
+            }
+        }
+        l = 0;
+        if (smallElement[0, 0] != i)
+        {
+            k++;
+        }
     }
-    l = 0;
-    if (positionSmallElement[0, 0] != i)
-    {
-      k++;
-    }
-  }
 }
-
-FindPositionSmallElement(matr);
-int[,] positionSmallElement =FindPositionSmallElement(matr);
-DeleteLines(matr, positionSmallElement);
+int[,] arrayDeleteLines = new int[matr.GetLength(0) - 1, matr.GetLength(1) - 1];
+PositionSmallElem(matr);
+int[,] smallElement = PositionSmallElem(matr);
+DeleteLines(matr, smallElement, arrayDeleteLines);
+PrintMatrix(arrayDeleteLines);
