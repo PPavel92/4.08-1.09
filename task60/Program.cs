@@ -21,7 +21,7 @@ int[,,] CreateMatrixRndInt(int x, int y, int z, int min, int max)
     }
     return matrix;
 }
-void PrintMatrix(int[,,] matrix)
+void PrintMatrixArr(int[,,] matrix)
 {
 
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -39,15 +39,42 @@ void PrintMatrix(int[,,] matrix)
     }
 }
 
-
-void Array3D(int[,,] matrix)     // не доделал вывод построчно.....
+   bool FindElement(int[,,] matrix)
 {
-
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int k = 0; k < matrix.GetLength(2); k++)
+            {
+                if (matrix[i, j, k] == matrix[i, j, k]) return true;
+            }
+        }
+    }
+    return false;
 }
 
-nt[,,] matr = CreateMatrixRndInt(2, 2, 2, 1, 9);
+ void PrintMatrix(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]} ({i},{j},{k}) ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
 
-PrintMatrix(matr);
-Array3D(matr);
+
+
+
+int[,,] matr = CreateMatrixRndInt(2, 2, 2, 10, 99);
+
+PrintMatrixArr(matr);
+FindElement(matr);
 Console.WriteLine();
 PrintMatrix(matr);
