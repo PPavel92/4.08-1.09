@@ -8,7 +8,7 @@
 
 Console.WriteLine("Введите число строк 1-й матрицы: ");
 int i = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число столбцов 1-й матрицы (и строк 2-й): ");
+Console.WriteLine("Введите число столбцов 1-й матрицы и строк 2-й: ");
 int j = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число столбцов 2-й матрицы: ");
 int k = Convert.ToInt32(Console.ReadLine());
@@ -60,7 +60,7 @@ void PrintMatrix(int[,] matrix)
 }
 
 
-void  MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+void  CompositionMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
 {
 
     for (int i = 0; i < resultMatrix.GetLength(0); i++)
@@ -72,11 +72,8 @@ void  MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMat
             {
                 sum += firstMartrix[i, k] * secomdMartrix[k, j];
             }
-            resultMatrix[i, j] = sum;
-            
+            resultMatrix[i, j] = sum;  
         }
-
-
     }
 }
 
@@ -95,6 +92,6 @@ CreateSecondMatrix(matrSecond,1,9);
 PrintMatrix(matrSecond);
 Console.WriteLine();
 
-MultiplyMatrix(matrFirst, matrSecond, resultMatrix);
+CompositionMatrix(matrFirst, matrSecond, resultMatrix);
 PrintMatrix(resultMatrix);
-//Console.WriteLine(resultMatrix);
+
