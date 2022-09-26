@@ -5,110 +5,55 @@
 // 11 16 15 06
 // 10 09 08 07
 
-
-
-Console.WriteLine($"Введите размер матрицы: ");
-    int s = int.Parse(Console.ReadLine());
-    int[,] arr = GetArray(s);
-    PrintArray(arr);
-
-
-    int[,] GetArray(int size)
+int[,] CreateMatrix(int row, int col)
+{
+    int[,] matrix = new int[row, col];
+    for (int i = 0; i < matrix.GetLength(0); i++)       ///row
     {
-      int [,] result = new int[size, size];
-      int i = 0;
-      int j = 0;
-      int rowE = size - 1;
-      int columnE = size - 1;
-      int rowS = 0;
-      int columnS = 0;
-      bool left = true;
-      bool top = true;
-      int count = 0;
-      while (count < size * size)
-      {
-        count++;
-        result[i, j] = count;
-        //идем вправо
-        if (left && top)
-        {
-          if (j == columnE)
-          {
-            rowS++;
-            top = true;
-            left = false;
-            i++;
-            continue;
-          }
-          else
-          {
-            j++;
-              continue;
-          }
-        }
-        //идем вниз
-        if (!left && top)
-        {
-          if (i == rowE)
-          {
-            columnE--;
-            top = false;
-            left = false;
-            j--;
-            continue;
-          }
-          else
-          {
-            i++;
-            continue;
-          }
-        }
-        //идем влево
-        if (!left && !top)
-        {
-          if (j == columnS)
-          {
-            rowE--;
-            top = false;
-            left = true;
-            i--;
-            continue;
-          }
-          else
-          {
-            j--;
-            continue;
-      }
+        for (int j = 0; j < matrix.GetLength(1); j++) ;  ///col
+
     }
-        //Идем вверх
-       if (left && !top)
-        {
-          if (j == rowS)
-          {
-            columnS++;
-            top = true;
-            left = true;
-            j++;
-            continue;
-          }
-          else
-          {
-            i--;
-            continue; 
-          }
-        }
-      }
-      return result;
-    }
-    
-    void PrintArray(int[,] inArray)
+    return matrix;
+}
+
+
+void ScrollFill(int[,] matrix)
+{
+    int temp = 1;
+    int i = 0;
+    int j = 0;
+
+    while (temp <= matrix.GetLength(0) * matrix.GetLength(1))
     {
-      for (int i = 0; i < inArray.GetLength(0); i++)
-      {
-        for (int j = 0; j < inArray.GetLength(1); j++)
+        matrix[i, j] = temp;
+        temp++;
+        if (i <= j + 1 && i + j < matrix.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= matrix.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > matrix.GetLength(1) - 1)
+            j--;
+        else
+            i--;
+    }
+}
+
+void PrintMatrixScroll(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-          Console.WriteLine($"{inArray[i, j]} ");
+            if (matrix[i, j] / 10 <= 0)
+                Console.Write($" {matrix[i, j]} ");
+
+            else Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
-      }
     }
+}
+
+
+int[,] matr = CreateMatrix(4, 4);
+ScrollFill(matr);
+PrintMatrixScroll(matr);
