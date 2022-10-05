@@ -13,10 +13,8 @@ int MetodAkkerman(int numM, int numN)
 {
   if (numM == 0)
     return numN + 1;
-  else
     if ((numM != 0) && (numN == 0))
       return MetodAkkerman(numM - 1, 1);
-    else
       return MetodAkkerman(numM - 1, MetodAkkerman(numM, numN - 1));
 }
 
